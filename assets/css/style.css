@@ -1,3 +1,12 @@
 /* Design concept
 Simple, yet elegant
 Pehaps Lightbox type of concept? Darkmode/Light Mode gallery */
+
+:root {
+    --off-white: #F1F6F9;
+    --light-gray: #e4e9ec;
+    --gray: #9BA4B5;
+    --blue: #394867;
+    --black: #0c0c0c;
+    --dark-blue: #212A3E;
+}
