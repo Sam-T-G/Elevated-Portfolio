@@ -43,3 +43,40 @@ function scrollToWithRamping(targetElement, offset) {
 // Potential interactive divider or mouse-triggered reveal divider
 
 //3d animation?
+
+//Typing animation for Hero Element
+const header = document.getElementById('typing-header');
+const textElement = document.getElementById('typing-text');
+const typingSpeed = 75; // Adjust the typing speed in milliseconds
+//Set default viewport value to false so element is empty on page load
+let isElementInViewport = false;
+
+function typeTextEffect() {
+  const textToType = "Unspoken beauty through simplicity";
+  //Clears text element to an empty string by default when not in viewport
+  textElement.textContent = '';
+    //typeCharacter element checks to see if the if the header is in the viewport, and if not, halts the animation
+  function typeCharacter(charIndex = 0) {
+    if (!isElementInViewport || charIndex >= textToType.length) return;
+    //if the header is within the viewport, it appends the letters to be typed one by one according to the set delay in milliseconds dicated under typingSpeed variable
+    textElement.textContent += textToType.charAt(charIndex);
+    setTimeout(() => typeCharacter(charIndex + 1), typingSpeed);
+  }
+  //calls typeCharacter function
+  typeCharacter();
+}
+//Utilize IntersectionObserver to check if the header element is within the viewport
+const observer = new IntersectionObserver(entries => {
+  isElementInViewport = entries[0].isIntersecting;
+  //Clears text element if it is out of the viewport
+  isElementInViewport ? typeTextEffect() : (textElement.textContent = '');
+});
+//Set the IntersectionObserver to observe the header element
+observer.observe(header);
+typeTextEffect();
+
+window.addEventListener('scroll', function () {
+  const container = document.querySelector('.hero');
+  let offset = window.pageYOffset;
+  container.style.backgroundPositionY = -offset * 0.3 + 'px';
+});
