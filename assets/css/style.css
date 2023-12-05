@@ -18,15 +18,35 @@ Pehaps Lightbox type of concept? Darkmode/Light Mode gallery */
     --dark-blue: #212A3E;
 }
 
+body {
+    background-color: var(--off-white);
+    margin: 0;
+    padding: 0;
+}
+
 header {
     height: 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: var(--blue);
-    color: var(--off-white);
+    background-color: var(--off-white);
+    color: var(--blue);
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+header h1 {
+    display: inline-block;
+    margin-right: 30vw;
+    font-size: 6vw;
+    color: var(--gray);
+}
+
+header h2 {
+    display: inline-block;
+    margin-left: 27vw;
+    font-size: 2vw;
+    margin-top: 2.5vh;
 }
 
 header div {
@@ -43,6 +63,18 @@ header div ul {
     padding: 5px;
 }
 
+/* This element targets the li elements within the header ancestor to have proper margin and display */
+header div ul li {
+    display: inline-block;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-top: 20px;
+    transition: transform .2s;
+    &:hover {
+        transform: scale(1.25);
+    }
+}
+
 a {
     color: var(--off-white);
     text-decoration: none;
@@ -51,6 +83,15 @@ a {
     }
 }
 
+header p {
+    justify-content: center;
+    display: flex;
+    letter-spacing: 0.03rem;
+    margin-top: 7vh;
+    /* margin-left: 22vw;
+    margin-right: 22vw; */
+    max-width: 56vw;
+}
 
 .navigation {
     /* makes nav bar persistent on top of the page regardless of scrolling down throughout the page */
